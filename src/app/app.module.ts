@@ -3,8 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MdButtonModule, MdCheckboxModule, MdMenuModule, MdInputModule,
-         MdToolbarModule, MdDialogModule, MdSidenavModule, MdNativeDateModule,
-         MaterialModule } from '@angular/material';
+         MdToolbarModule, MdDialogModule, MdSidenavModule, MdNativeDateModule, MdSelectModule, MdRadioModule } from '@angular/material';
 import 'hammerjs';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -17,6 +16,7 @@ import { AuthModule } from './components/auth/auth.module';
 import { BackgroundsModule } from './components/backgrounds/backgrounds.module';
 import { ProfileModule } from './components/profile/profile.module';
 import { MiscModule } from './components/misc/misc.module';
+import { MdSnackBarModule } from '@angular/material';
 
 // Shared
 import {
@@ -59,8 +59,8 @@ import { EmailMeComponent } from './components/email-me/email-me.component';
     BrowserAnimationsModule,
     MdButtonModule, MdCheckboxModule, MdMenuModule, MdInputModule,
     MdToolbarModule, MdDialogModule, MdSidenavModule, MdNativeDateModule,
-    MaterialModule,
     FormsModule,
+    MdSnackBarModule,
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
@@ -70,7 +70,8 @@ import { EmailMeComponent } from './components/email-me/email-me.component';
     AuthModule,
     BackgroundsModule,
     ProfileModule,
-    MiscModule
+    MiscModule,
+    MdSelectModule, MdRadioModule
   ],
   providers: [
     UserService,

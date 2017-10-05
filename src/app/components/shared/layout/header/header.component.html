@@ -77,13 +77,12 @@
     <ng-template #loggedin>
         <h4>(User: {{userEmail()}})</h4>
        
-        <button md-icon-button [mdMenuTriggerFor]="menu">
+        <button md-icon-button><!--[MdMenuTriggerFor]="menu"-->
         <md-icon>more_vert</md-icon>
         </button>
         
-        <md-menu #menu="mdMenu" >
+        <!--md-menu #menu="MdMenuModule" >
           
-          <!-- [routerLink]="['/profile', userUid(), userName()]" -->
           <a 
             md-menu-item 
             routerLink="/profile" 
@@ -91,33 +90,17 @@
             <md-icon class="profile">face</md-icon>
             <span>Profile</span>
           </a>
-          
-          <!--
-          <a md-menu-item routerLink="/messages">
-            <md-icon class="messages">chat</md-icon>
-            <span>Messages</span>
-          </a>
-          -->
 
           <a md-menu-item *ngFor="let item of menuItems" href="{{item.link}}">
             <md-icon class="login">{{item.icon}}</md-icon>
             <span>{{item.title}}</span>
           </a>
 
-          <a 
-            md-menu-item 
-            routerLink="/profile-settings" 
-            [queryParams]="{profile: '1'}" 
-            fragment="editProfile">
-            <md-icon class="settings">settings</md-icon>
-            <span>Settings</span>
-          </a>
-
           <a md-menu-item (click)="onLogout()">
             <md-icon class="logout">lock_outline</md-icon>
             <span>Logout</span>
           </a>
-        </md-menu> 
+        </md-menu--> 
 
       </ng-template>
 </md-toolbar>

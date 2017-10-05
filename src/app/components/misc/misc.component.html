@@ -1,82 +1,207 @@
-<!-- Carousel -->
-<app-carousel></app-carousel>
 
 <div id="content">
-  <md-card>
-    <h1>Misc</h1>
-    <h4>Various components ready to use in your own project.</h4>
+    <md-card>
+      <h1>Angular 4 with Material 11 Controls</h1>
+        <form class="form" (ngSubmit)="onSubmit(c)" #c="ngForm" >
+  
+              <md-form-field class="full-width">
+                  <input mdInput id='postalCode' name='postalCode' placeholder="Name" prefix='Pre-' value="Cumpanasu" required><!--disabled-->
+                  <md-hint align="end">3-20 characters</md-hint>
+                  <md-error>This field is required</md-error>
+              </md-form-field>
+  
+              <md-form-field class="full-width">
+                  <input mdInput id='postalCode' type='password' name='postalCode' placeholder="Name" prefix='Pre-' value="Cumpanasu" required><!--disabled-->
+                  <md-hint align="end">3-20 characters</md-hint>
+                  <md-error>This field is required</md-error>
+              </md-form-field>
+  
+              <md-form-field class="full-width">
+                    <textarea mdInput placeholder="Address" id="address" mandatory name="address" ngModel required>Some address</textarea>
+                  <md-hint align="end">3-200 characters</md-hint>
+                  <md-error>This field is required</md-error>
+              </md-form-field>
+  
+              <md-checkbox>Check me!</md-checkbox>
+  
+              <md-radio-group class="full-width">
+                  <md-radio-button value="1">Option 1</md-radio-button>
+                  <md-radio-button value="2">Option 2</md-radio-button>
+              </md-radio-group>
+  
+            <md-select placeholder="State" class="full-width">
+                <md-option value='3'>Option 3</md-option>
+                <md-option value='4'>Option 4</md-option>
+            </md-select>
+  
+  
+  
+  
+  
+            <md-form-field class="example-full-width">
+              <input mdInput [mdDatepickerFilter]="myFilter" [mdDatepicker]="picker" placeholder="Choose a date">
+              <md-datepicker-toggle mdSuffix [for]="picker"></md-datepicker-toggle>
+              <md-datepicker #picker></md-datepicker>
+            </md-form-field>
+  
+            <button md-raised-button type="submit" [disabled]="c.invalid">Submit</button>
+            <md-button-toggle>Toggle me!</md-button-toggle>
+  
+            <md-slide-toggle>Slide me!</md-slide-toggle>
+  
+            <md-form-field class="demo-chip-list">
+              <md-chip-list mdPrefix #chipList>
+                <md-chip *ngFor="let fruit of fruits" [selectable]="selectable"
+                         [removable]="removable" (remove)="remove(fruit)">
+                         {{fruit.name}}
+                  <md-icon mdChipRemove *ngIf="removable">cancel</md-icon>
+                </md-chip>
+              </md-chip-list>
+              <input mdInput placeholder="New fruit..."
+                     [mdChipInputFor]="chipList"
+                     [mdChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                     [mdChipInputAddOnBlur]="addOnBlur"
+                     (mdChipInputTokenEnd)="add($event)" />
+            </md-form-field>
+  
+            <md-icon>home</md-icon>
+  
+            <md-spinner></md-spinner>
+  
+  <md-progress-bar mode="indeterminate"></md-progress-bar>
+  
+            <form class="example-form">
+              <md-form-field class="example-full-width">
+                <input type="text" placeholder="Pick one" aria-label="Number" mdInput [formControl]="myControl" [mdAutocomplete]="auto">
+                <md-autocomplete #auto="mdAutocomplete">
+                  <md-option *ngFor="let option of filteredOptions | async" [value]="option">
+                    {{ option }}
+                  </md-option>
+                </md-autocomplete>
+              </md-form-field>
+            </form>
+  
+            <md-form-field class="demo-chip-list">
+              <md-chip-list mdPrefix #chipList>
+                <md-chip *ngFor="let fruit of fruits" [selectable]="selectable"
+                         [removable]="removable" (remove)="remove(fruit)">
+                         {{fruit.name}}
+                  <md-icon mdChipRemove *ngIf="removable">cancel</md-icon>
+                </md-chip>
+              </md-chip-list>
+              <input mdInput placeholder="New fruit..."
+                     [mdChipInputFor]="chipList"
+                     [mdChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                     [mdChipInputAddOnBlur]="addOnBlur"
+                     (mdChipInputTokenEnd)="add($event)" />
+            </md-form-field>
+  
+            <ol>
+              <li>
+                <md-form-field>
+                  <input mdInput [(ngModel)]="name" placeholder="What's your name?">
+                </md-form-field>
+              </li>
+              <li>
+                <button md-raised-button (click)="openDialog()">Pick one</button>
+              </li>
+              <li *ngIf="animal">
+                You chose: <i>{{animal}}</i>
+              </li>
+            </ol>
+  
+            <span mdTooltip="Tooltip!">I have a tooltip</span>
+  
+  
+  <md-sidenav-container class="example-container">
+    <md-sidenav #sidenav class="example-sidenav">
+      Jolly good!
+    </md-sidenav>
+  
+    <div class="example-sidenav-content">
+      <button type="button" md-button (click)="sidenav.open()">
+        Open sidenav
+      </button>
+    </div>
+  
+  </md-sidenav-container>
+  
+  <md-selection-list #shoes>
+    <md-list-option *ngFor="let shoe of typesOfShoes">
+      {{shoe}}
+    </md-list-option>
+  </md-selection-list>
+  
+  <p>
+    Options selected: {{shoes.selectedOptions.selected.length}}
+  </p>
+  
+  <md-card>Simple card</md-card>
+  
+  <md-tab-group>
+    <md-tab label="Tab 1">Content 1</md-tab>
+    <md-tab label="Tab 2">Content 2</md-tab>
+  </md-tab-group>
+  
+  <md-expansion-panel>
+    <md-expansion-panel-header>
+      <md-panel-title>
+        Personal data
+      </md-panel-title>
+      <md-panel-description>
+        Type your name and age
+      </md-panel-description>
+    </md-expansion-panel-header>
     
-    <hr>
-    
-    <!-- Miscellaneous material components -->
-    <h3>Two-way data binding :</h3>
-    <md-input-container class="full-width">
-    <input mdInput placeholder="I am feeling good!" type="text" [(ngModel)]="answer"/>
-    </md-input-container>
-
-    <md-toolbar>Repeat yourself : {{answer}}</md-toolbar>
-
-    <hr>
-
-    <h3>MD Datepicker : </h3>
     <md-form-field>
-      <input mdInput [mdDatepicker]="picker" placeholder="Choose a date">
-      <md-datepicker-toggle mdSuffix [for]="picker"></md-datepicker-toggle>
-      <md-datepicker #picker></md-datepicker>
+      <input mdInput placeholder="First name">
     </md-form-field>
-
-    <hr>
-
-    <h3>MD Sidenav : </h3>
-    <md-sidenav-container class="container">
-      <md-sidenav #sidenav class="sidenav">
-        This is the sidenav!
-      </md-sidenav>
-
-      <div class="sidenav-content">
-        <button type="button" md-button (click)="sidenav.open()">
-          Open sidenav!
-        </button>
+    
+    <md-form-field>
+      <input mdInput placeholder="Age">
+    </md-form-field>
+  </md-expansion-panel>
+  
+  <md-horizontal-stepper [linear]="isLinear">
+    <md-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <ng-template mdStepLabel>Fill out your name</ng-template>
+        <md-form-field>
+          <input mdInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+        </md-form-field>
+        <div>
+          <button md-button mdStepperNext>Next</button>
+        </div>
+      </form>
+    </md-step>
+    <md-step [stepControl]="secondFormGroup">
+      <form [formGroup]="secondFormGroup">
+        <ng-template mdStepLabel>Fill out your address</ng-template>
+        <md-form-field>
+          <input mdInput placeholder="Address" formControlName="secondCtrl" required>
+        </md-form-field>
+        <div>
+          <button md-button mdStepperPrevious>Back</button>
+          <button md-button mdStepperNext>Next</button>
+        </div>
+      </form>
+    </md-step>
+    <md-step>
+      <ng-template mdStepLabel>Done</ng-template>
+      You are now done.
+      <div>
+        <button md-button mdStepperPrevious>Back</button>
       </div>
-
-    </md-sidenav-container>
-
-    <hr>
-   
-    <h3>MD Tooltip : </h3>
-    <span mdTooltip="This is a tooltip">Hover me!</span>
-
-    <br/><hr>
-
-    <h3>MD Slide toggle : </h3>
-    <md-slide-toggle class="margin">
-      Click me!
-    </md-slide-toggle>
-
-    <br/><hr>
-
-    <app-table></app-table>
-    
-    <hr>
-
-    <!-- Pipes -->
-    <app-change-detection></app-change-detection>
-
-    <hr>
-
-    <app-async-observable-pipe></app-async-observable-pipe>
-
-    <hr>
-    
-    <app-json-pipe></app-json-pipe>
-    
-    <hr>
-
-    <app-currency-pipe></app-currency-pipe>
-
-
-  </md-card>
-</div>
-
-<!-- 360 virtual reality component -->
-<app-virtreal></app-virtreal>
+    </md-step>
+  </md-horizontal-stepper>
+  
+            <button md-raised-button type="submit" [disabled]="c.invalid">Submit</button>
+            <md-button-toggle>Toggle me!</md-button-toggle>
+  
+            <button md-raised-button type="submit" [disabled]="c.invalid">Submit</button>
+            <md-button-toggle>Toggle me!</md-button-toggle>
+  
+  </form>
+    </md-card>
+  </div>
+  

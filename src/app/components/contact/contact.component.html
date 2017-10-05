@@ -39,5 +39,51 @@
       <button md-raised-button type="submit" [disabled]="c.invalid">Submit</button>
 
     </form>
+
+    <form class="form">
+
+
+      
+          <md-form-field class="full-width">
+              <input mdInput placeholder="Name" prefix='Pre-' value="Cumpanasu"><!--disabled-->
+              <md-hint>(Fammily Name)</md-hint>
+              <md-error>This field is required</md-error>
+          </md-form-field>
+
+          <md-radio-group class="full-width">
+              <md-radio-button value='1'>Option 1</md-radio-button>
+              <md-radio-button value='2'>Option 2</md-radio-button>
+          </md-radio-group>
+
+          <md-select placeholder="State" class="full-width">
+              <md-option value='3'>Option 3</md-option>
+              <md-option value='4'>Option 4</md-option>
+          </md-select>
+    
+      <table class="example-full-width" cellspacing="0"><tr>
+        <td><md-form-field class="example-full-width">
+          <input mdInput placeholder="First name"> 
+        </md-form-field></td>
+        <td><md-form-field class="example-full-width">
+          <input mdInput placeholder="Long Last Name That Will Be Truncated">
+        </md-form-field></td>
+      </tr></table>
+    
+      <p><md-form-field class='example-full-width'><textarea mdInput placeholder='Address'>1600 Amphitheatre Pkwy</textarea></md-form-field><md-form-field class='example-full-width'><textarea mdInput placeholder='Address 2'></textarea></md-form-field></p>
+    
+      <table class="example-full-width" cellspacing="0"><tr>
+        <td><md-form-field class="example-full-width">
+          <input mdInput placeholder="City">
+        </md-form-field></td>
+        <td><md-form-field class="example-full-width">
+          <input mdInput placeholder="State">
+        </md-form-field></td>
+        <td><md-form-field class="example-full-width">
+          <input mdInput #postalCode maxlength="5" placeholder="Postal Code" value="94043">
+          <md-hint align="end">{{postalCode.value.length}} / 5</md-hint>
+        </md-form-field></td>
+      </tr></table>
+  </form>
+  
   </md-card>
 </div>

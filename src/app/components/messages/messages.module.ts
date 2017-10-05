@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { MdButtonModule, MdCheckboxModule, MdMenuModule, MdInputModule,
-         MdToolbarModule, MdDialogModule, MaterialModule } from '@angular/material';
+         MdToolbarModule, MdDialogModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 
 // Components
@@ -20,7 +20,7 @@ import { MessageService } from './message.service';
     CommonModule,
     BrowserModule,
     MdButtonModule, MdCheckboxModule, MdMenuModule, MdInputModule,
-    MdToolbarModule, MdDialogModule, MaterialModule,
+    MdToolbarModule, MdDialogModule,
     FormsModule
   ],
   providers: [
