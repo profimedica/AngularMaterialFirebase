@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { MdButtonModule, MdCheckboxModule, MdInputModule, MdNativeDateModule, MdSlideToggleModule,
-         MdTooltipModule, MdSidenavModule, MdTableModule, MdDatepickerModule, MaterialModule } from '@angular/material';
+         MdTooltipModule, MdSidenavModule, MdTableModule, MdDatepickerModule } from '@angular/material';
 
 // import { CdkTableModule } from '@angular/cdk';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -29,7 +29,7 @@ import { TableComponent } from './table/table.component';
   imports: [
     CommonModule,
     MdButtonModule, MdCheckboxModule, MdInputModule, MdNativeDateModule, MdSlideToggleModule,
-    MdTooltipModule, MdSidenavModule, MdTableModule, MdDatepickerModule, MaterialModule,
+    MdTooltipModule, MdSidenavModule, MdTableModule, MdDatepickerModule,
     FormsModule, ReactiveFormsModule,
     PipesModule,
     // MiscRoutingModule

@@ -2,7 +2,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MdButtonModule, MdCheckboxModule, MdMenuModule, MdInputModule,
-         MdToolbarModule, MdDialogModule, MaterialModule } from '@angular/material';
+         MdToolbarModule, MdDialogModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 
 // Components
@@ -17,7 +17,7 @@ import { ProfileSettingsComponent } from './profile-settings.component';
   imports: [
     CommonModule,
     MdButtonModule, MdCheckboxModule, MdMenuModule, MdInputModule,
-    MdToolbarModule, MdDialogModule, MaterialModule,
+    MdToolbarModule, MdDialogModule,
     FormsModule
   ],
   exports: [

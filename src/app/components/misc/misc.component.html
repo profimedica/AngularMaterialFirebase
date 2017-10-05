@@ -82,13 +82,13 @@
             </form>
   
             <md-form-field class="demo-chip-list">
-              <md-chip-list mdPrefix #chipList>
+              <!--md-chip-list mdPrefix #chipList>
                 <md-chip *ngFor="let fruit of fruits" [selectable]="selectable"
                          [removable]="removable" (remove)="remove(fruit)">
                          {{fruit.name}}
                   <md-icon mdChipRemove *ngIf="removable">cancel</md-icon>
                 </md-chip>
-              </md-chip-list>
+              </md-chip-list-->
               <input mdInput placeholder="New fruit..."
                      [mdChipInputFor]="chipList"
                      [mdChipInputSeparatorKeyCodes]="separatorKeysCodes"

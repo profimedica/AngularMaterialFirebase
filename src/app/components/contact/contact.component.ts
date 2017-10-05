@@ -1,7 +1,37 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Contact } from '../shared';
-import { MdInputModule } from '@angular/material';
+import {  
+  MdAutocompleteModule,
+  MdButtonModule,
+  MdButtonToggleModule,
+  MdCardModule,
+  MdCheckboxModule,
+  MdChipsModule,
+  MdDatepickerModule,
+  MdDialogModule,
+  MdExpansionModule,
+  MdFormFieldModule,
+  MdGridListModule,
+  MdIconModule,
+  MdInputModule,
+  MdListModule,
+  MdMenuModule,
+  MdProgressBarModule,
+  MdProgressSpinnerModule,
+  MdRadioModule,
+  MdSelectModule,
+  MdSlideToggleModule,
+  MdSliderModule,
+  MdSidenavModule,
+  MdStepperModule,
+  MdTabsModule,
+  MdToolbarModule,
+  MdTooltipModule,
+  MdPaginatorModule,
+  MdSortModule,
+  MdTableModule,
+  MdSnackBarModule, } from '@angular/material';
 
 import { AlertService, UserService } from '../shared';
 

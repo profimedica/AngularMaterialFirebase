@@ -82,7 +82,7 @@ export class dataSource extends DataSource<any> {
     connect(): Observable<UserData[]> {
     const displayDataChanges = [
         this.database.dataChange,
-        this.sort.mdSortChange,
+        //this.sort.mdSortChange,
     ];
 
     return Observable.merge(...displayDataChanges).map(() => {
