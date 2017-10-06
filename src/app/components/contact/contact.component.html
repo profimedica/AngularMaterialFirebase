@@ -1,89 +1,183 @@
+
 <div id="content">
   <md-card>
-    <h1>Contact us</h1>
+    <h1>Angular 4 with Material 11 Controls</h1>
       <form class="form" (ngSubmit)="onSubmit(c)" #c="ngForm" >
-      <md-input-container class="full-width">
-        <input mdInput placeholder="Company" id="company" name="company" value="Google" ngModel required>
-      </md-input-container>
 
-      <table class="full-width" cellspacing="0"><tr>
-        <td><md-input-container class="full-width">
-          <input mdInput placeholder="First name" id="firstname" name="firstname" ngModel required>
-        </md-input-container></td>
-        <td><md-input-container class="full-width">
-          <input mdInput placeholder="Last name" id="lastname" name="lastname" ngModel required>
-        </md-input-container></td>
-      </tr></table>
+            <md-form-field class="full-width" name="input_text_control" >
+                <input mdInput id='postalCode' name='postalCode' placeholder="Name" prefix='Pre-' [(ngModel)]="DataContext.UserName" required>
+                <md-hint align="end">3-20 characters</md-hint>
+                <md-error>This field is required</md-error>
+            </md-form-field>
 
-      <p>
-        <md-input-container class="full-width">
-          <textarea mdInput placeholder="Address" value="Streetname 12a" id="address" name="address" ngModel required></textarea>
-        </md-input-container>
-      </p>
-
-      <table class="full-width" cellspacing="0"><tr>
-        <td><md-input-container class="full-width">
-          <input mdInput placeholder="City" id="city" name="city" ngModel required>
-        </md-input-container></td>
-        <td><md-input-container class="full-width">
-          <input mdInput #postalCode maxlength="6" id="postal" name="postal" placeholder="Zip Code" value="2900TY" ngModel required>
-          <md-hint align="end">{{postalCode.value.length}} / 6</md-hint>
-        </md-input-container></td>
-      </tr></table>      
-      <p>
-        <md-input-container class="full-width">
-          <textarea mdInput placeholder="Your message" id="message" name="message" ngModel required></textarea>
-        </md-input-container>
-      </p>
-      <br />
-      <button md-raised-button type="submit" [disabled]="c.invalid">Submit</button>
-
-    </form>
-
-    <form class="form">
-
-
-      
-          <md-form-field class="full-width">
-              <input mdInput placeholder="Name" prefix='Pre-' value="Cumpanasu"><!--disabled-->
-              <md-hint>(Fammily Name)</md-hint>
+            <md-form-field class="full-width" name="input_password_control">
+              <input mdInput id='postalCode' type='password' name='postalCode' prefix='Pre-' [(ngModel)]="DataContext.UserName" required>
+              <md-hint align="end">3-20 characters</md-hint>
               <md-error>This field is required</md-error>
+            </md-form-field>
+
+            <md-form-field class="full-width" name="input_multiline_control">
+              <textarea mdInput placeholder="Address" id="address" mandatory name="address" [(ngModel)]="DataContext.UserName" ngModel required>Some address</textarea>
+              <md-hint align="end">3-200 characters</md-hint>
+              <md-error>This field is required</md-error>
+            </md-form-field>
+            
+            Simple Select Options
+            
+            <md-select class="full-width" [(ngModel)]="DataContext.UserName" name="input_option_control" placeholder="State" >
+              <md-option value="Are">Are</md-option>
+              <md-option value="MyName">Ana</md-option>
+              <md-option value="2">Mere</md-option>
+            </md-select>
+                        
+            Dynamic Select Options
+            
+            <md-select class="full-width" [(ngModel)]="DataContext.UserName" name="input_option_control" placeholder="State" >
+              <md-option *ngFor="let option of DataContext.UserOptions" [value]="option" >
+                {{option}}
+              </md-option>
+            </md-select>
+            
+            Simple Radio Options            
+
+            <div>
+              <md-radio-group class="full-width" name="input_radiobox_control" [(ngModel)]="DataContext.UserName">
+                <md-radio-button value="Are">Are</md-radio-button>
+                <md-radio-button value="MyName">Ana</md-radio-button>
+                <md-radio-button value="2">Mere</md-radio-button>
+              </md-radio-group>
+            </div>
+                        
+            Dynamic Radio Options            
+
+            <div>
+              <md-radio-group class="full-width" name="input_radiobox_control" [(ngModel)]="DataContext.UserName">
+                <md-radio-button *ngFor="let option of DataContext.UserOptions" [value]="option" >
+                  {{option}}
+                </md-radio-button>
+              </md-radio-group>
+            </div>
+
+            <div>
+              <md-checkbox class="full-width" name="input_checkboxgroup_control" [(ngModel)]="DataContext.UserName">Are Ana Mere?</md-checkbox>
+            </div>
+
+          <button name='submit' md-raised-button type="submit" [disabled]="c.invalid" [(ngModel)]="DataContext.UserName" ngDefaultControl >Submit</button>
+
+          <md-button-toggle name='input_toggle_control' [(ngModel)]="DataContext.UserName" ngDefaultControl >Toggle me!</md-button-toggle>
+
+          <md-slide-toggle name='input_slide_control' [(ngModel)]="DataContext.UserName" ngDefaultControl >Slide me!</md-slide-toggle>
+
+          <md-form-field class="demo-chip-list">
+            <md-chip-list mdPrefix #chipList>
+              <md-chip *ngFor="let option of DataContext.UserOptions" selectable="true"
+                       removable="true" (remove)="remove(option)">
+                       {{option}}
+                <md-icon mdChipRemove *ngIf="removable">cancel</md-icon>
+              </md-chip>
+            </md-chip-list>
+            <input mdInput placeholder="New option..."
+                   [mdChipInputFor]="chipList"
+                   mdChipInputSeparatorKeyCodes=","
+                   mdChipInputAddOnBlur="true"
+                   (mdChipInputTokenEnd)="add($event)" />
           </md-form-field>
 
-          <md-radio-group class="full-width">
-              <md-radio-button value='1'>Option 1</md-radio-button>
-              <md-radio-button value='2'>Option 2</md-radio-button>
-          </md-radio-group>
+          <md-expansion-panel>
+            <md-expansion-panel-header>
+              <md-panel-title>
+                Personal data
+              </md-panel-title>
+              <md-panel-description>
+                Type your name and age
+              </md-panel-description>
+            </md-expansion-panel-header>
+            <div *ngFor="let option of DataContext.UserOptions">
+              {{ option }}
+            </div>
+          </md-expansion-panel>
 
-          <md-select placeholder="State" class="full-width">
-              <md-option value='3'>Option 3</md-option>
-              <md-option value='4'>Option 4</md-option>
-          </md-select>
-    
-      <table class="example-full-width" cellspacing="0"><tr>
-        <td><md-form-field class="example-full-width">
-          <input mdInput placeholder="First name"> 
-        </md-form-field></td>
-        <td><md-form-field class="example-full-width">
-          <input mdInput placeholder="Long Last Name That Will Be Truncated">
-        </md-form-field></td>
-      </tr></table>
-    
-      <p><md-form-field class='example-full-width'><textarea mdInput placeholder='Address'>1600 Amphitheatre Pkwy</textarea></md-form-field><md-form-field class='example-full-width'><textarea mdInput placeholder='Address 2'></textarea></md-form-field></p>
-    
-      <table class="example-full-width" cellspacing="0"><tr>
-        <td><md-form-field class="example-full-width">
-          <input mdInput placeholder="City">
-        </md-form-field></td>
-        <td><md-form-field class="example-full-width">
-          <input mdInput placeholder="State">
-        </md-form-field></td>
-        <td><md-form-field class="example-full-width">
-          <input mdInput #postalCode maxlength="5" placeholder="Postal Code" value="94043">
-          <md-hint align="end">{{postalCode.value.length}} / 5</md-hint>
-        </md-form-field></td>
-      </tr></table>
-  </form>
-  
+          <md-sidenav-container class="example-container">
+            <md-sidenav #sidenav class="example-sidenav">
+              <div *ngFor="let option of DataContext.UserOptions">
+                {{ option }}
+              </div>             
+            </md-sidenav>          
+            <div class="example-sidenav-content">
+              <button type="button" md-button (click)="sidenav.open()">
+                Open sidenav
+              </button>
+            </div>          
+          </md-sidenav-container>
+
+          <md-tab-group>
+              <md-tab *ngFor="let option of DataContext.UserOptions" [label]='option'>
+                  {{ option }}
+              </md-tab>
+          </md-tab-group>
+          
+          <md-icon>home</md-icon>
+          
+          <md-spinner></md-spinner>
+          
+          <md-progress-bar mode="indeterminate"></md-progress-bar>
+
+          Autocomplete with filter
+
+          <md-form-field class="example-full-width">
+              <input type="text" placeholder="Pick one" name='input_autocomplete_control' mdInput aria-label="Number" [(ngModel)]="DataContext.UserName" [formControl]="myControl" [mdAutocomplete]="auto">
+              <md-autocomplete #auto="mdAutocomplete">
+                <md-option *ngFor="let option of DataContext.filteredOptions | async" [value]="option">
+                  {{ option }}
+                </md-option>
+              </md-autocomplete>
+          </md-form-field>
+
+          Datepicker input field
+
+          <md-form-field class="example-full-width">
+              <input mdInput name='input_datepicker_control' min="2016-01-02" max="2016-01-22" [mdDatepicker]="picker" [(ngModel)]="DataContext.UserName" placeholder="Choose a date">
+              <md-datepicker-toggle mdSuffix [for]="picker"></md-datepicker-toggle>
+              <md-datepicker #picker></md-datepicker>
+          </md-form-field>
+
+          <md-card>Simple card</md-card>
+
+          <span mdTooltip="Tooltip!">I have a tooltip</span>
+
+<md-horizontal-stepper linear="false">
+  <md-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template mdStepLabel>Fill out your name</ng-template>
+      <md-form-field>
+        <input mdInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+      </md-form-field>
+      <div>
+        <button md-button mdStepperNext>Next</button>
+      </div>
+    </form>
+  </md-step>
+  <md-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template mdStepLabel>Fill out your address</ng-template>
+      <md-form-field>
+        <input mdInput placeholder="Address" formControlName="secondCtrl" required>
+      </md-form-field>
+      <div>
+        <button md-button mdStepperPrevious>Back</button>
+        <button md-button mdStepperNext>Next</button>
+      </div>
+    </form>
+  </md-step>
+  <md-step>
+    <ng-template mdStepLabel>Done</ng-template>
+    You are now done.
+    <div>
+      <button md-button mdStepperPrevious>Back</button>
+    </div>
+  </md-step>
+</md-horizontal-stepper>
+
+</form>
   </md-card>
 </div>

@@ -4,14 +4,14 @@
       <h1>Angular 4 with Material 11 Controls</h1>
         <form class="form" (ngSubmit)="onSubmit(c)" #c="ngForm" >
   
-              <md-form-field class="full-width">
-                  <input mdInput id='postalCode' name='postalCode' placeholder="Name" prefix='Pre-' value="Cumpanasu" required><!--disabled-->
+              <!--md-form-field class="full-width">
+                  <input mdInput id='postalCode' name='postalCode' placeholder="Name" prefix='Pre-' value="Cumpanasu" required>
                   <md-hint align="end">3-20 characters</md-hint>
                   <md-error>This field is required</md-error>
               </md-form-field>
   
               <md-form-field class="full-width">
-                  <input mdInput id='postalCode' type='password' name='postalCode' placeholder="Name" prefix='Pre-' value="Cumpanasu" required><!--disabled-->
+                  <input mdInput id='postalCode' type='password' name='postalCode' placeholder="Name" prefix='Pre-' value="Cumpanasu" required>
                   <md-hint align="end">3-20 characters</md-hint>
                   <md-error>This field is required</md-error>
               </md-form-field>
@@ -82,13 +82,6 @@
             </form>
   
             <md-form-field class="demo-chip-list">
-              <!--md-chip-list mdPrefix #chipList>
-                <md-chip *ngFor="let fruit of fruits" [selectable]="selectable"
-                         [removable]="removable" (remove)="remove(fruit)">
-                         {{fruit.name}}
-                  <md-icon mdChipRemove *ngIf="removable">cancel</md-icon>
-                </md-chip>
-              </md-chip-list-->
               <input mdInput placeholder="New fruit..."
                      [mdChipInputFor]="chipList"
                      [mdChipInputSeparatorKeyCodes]="separatorKeysCodes"
@@ -199,7 +192,7 @@
             <md-button-toggle>Toggle me!</md-button-toggle>
   
             <button md-raised-button type="submit" [disabled]="c.invalid">Submit</button>
-            <md-button-toggle>Toggle me!</md-button-toggle>
+            <md-button-toggle>Toggle me!</md-button-toggle-->
   
   </form>
     </md-card>
